@@ -16,14 +16,15 @@
 
 import gi
 from gi.repository import Gtk, GObject, Gedit, Gio, PeasGtk
-import subprocess, os
+import subprocess
+import os
 import os.path
 from os.path import expanduser
 
 HOME=expanduser("~")
-FILENAME = HOME+"/.config/gedit/plugins/.astyle"
+FILENAME = HOME+"/.gedit_astyle"
 TREEVIEW = None
-ACCELERATOR = ['<Control><Alt>b']
+ACCELERATOR = ['<Shift>F8']
 LANGUAGE = "allman"
 STYLES = [ "1tbs", "banner", "allman", "gnu", "google", "horstmann", "java",
            "kr", "linux", "lisp", "pico", "stroustrup", "whitesmith" ]
@@ -52,7 +53,7 @@ def _load_setting():
         LLANGUAGE = "allman"
         _save_setting(LLANGUAGE)
     if not LLANGUAGE:
-        LLANGUAGE = "allman"
+        LLANGUAGE = "google"
     return LLANGUAGE
 
 def _selection_changed(second):
@@ -163,3 +164,5 @@ class AStylePluginWindowActivatable(GObject.Object, Gedit.WindowActivatable, Pea
         process.stdin.write(bytes(code, 'utf-8'))
         process.stdin.close()
         return process.stdout.read()
+
+
