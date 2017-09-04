@@ -22,7 +22,7 @@ import os.path
 from os.path import expanduser
 
 HOME=expanduser("~")
-FILENAME = HOME+"/.gedit_astyle"
+FILENAME = HOME+"/.config/gedit/astyle"
 TREEVIEW = None
 ACCELERATOR = ['<Shift>F8']
 LANGUAGE = "allman"
