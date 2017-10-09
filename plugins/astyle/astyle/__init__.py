@@ -16,8 +16,7 @@
 
 import gi
 from gi.repository import Gtk, GObject, Gedit, Gio, PeasGtk
-import subprocess
-import os
+import subprocess, os
 import os.path
 from os.path import expanduser
 
@@ -104,7 +103,7 @@ class AStylePluginAppActivatable(GObject.Object, Gedit.AppActivatable, PeasGtk.C
 
     def do_activate(self):
         self.app.set_accels_for_action("win.astyle", ACCELERATOR)
-        self.menu_ext = self.extend_menu("edit-section")
+        self.menu_ext = self.extend_menu("tools-section")
         item = Gio.MenuItem.new(_("AStyle"), "win.astyle")
         self.menu_ext.prepend_menu_item(item)
 
